@@ -344,7 +344,7 @@ body, div, section{
 
 .experiencias_img{
     margin: 5%;
-    background-image: url('images/imagen-niña-manos.jpg');
+    background-image: url('images/imagen-nina-manos.jpg');
     background-size: cover;       /* Ajusta la imagen al tamaño del div */
     background-position: center;
     width: 90%;
