@@ -211,6 +211,7 @@ body, div, section{
   padding: 2rem;
   background-color: var(--cambridge-blue);
   min-height: 40vh;
+  background-color: red;
 }
 
 .titulo{
