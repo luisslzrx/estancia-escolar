@@ -35,7 +35,7 @@ body, div, section{
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  background-color: var(--cambridge-blue);
+  background-color: red;
   height: 10vh;
   position: sticky;
   top: 0;
@@ -211,7 +211,6 @@ body, div, section{
   padding: 2rem;
   background-color: var(--cambridge-blue);
   min-height: 40vh;
-  background-color: red;
 }
 
 .titulo{
