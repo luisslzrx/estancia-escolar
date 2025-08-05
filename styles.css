@@ -1,0 +1,536 @@
+/* ----------------- Paleta de colores ----------------- */
+:root {
+  --blue: #A5C9D8ff;
+  --gris-claro: #F9FAFB;
+  --yellow: #E8CB88ff;
+  --green: #757A56ff;
+  --baby-powder: #FDFEFCff;
+  --white: #FFFFFFff;
+  --cambridge-blue: #82C39Bff;
+  --wheat: #EFD7AAff;
+  --reseda-green: #6D7B57ff;
+}
+
+/* ----------------- Reset básico ----------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--gris-claro);
+  color: var(--negro);
+  line-height: 1.6;
+}
+
+body, div, section{
+    box-sizing: border-box;
+}
+
+/* ----------------- Encabezado ----------------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: var(--cambridge-blue);
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  transition: font-size 0.3s ease;
+  font-size: 20px;
+}
+
+.header nav a:hover {
+  color: var(--blue);
+}
+
+
+/* ----------------- Introducción ----------------- */
+.intro {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  align-items: center;
+  text-align: center;
+}
+
+.info-inicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 500px;
+}
+
+.intro h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.name__school{
+    color: var(--green);
+}
+
+.intro p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--cambridge-blue);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--yellow);
+}
+
+.carrusel {
+    width: 50%; /* ancho visible del carrusel */
+    height: 500px;
+    overflow: hidden; /* oculta el contenido que se sale */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, white 30%);
+    mask-image: linear-gradient(to right, transparent 0%, white 30%);
+}
+
+.carrusel__contenido {
+  display: flex;
+  animation: deslizar 10s linear infinite;
+  animation-direction: alternate;
+}
+
+.carrusel__contenido img {
+  width: 600px;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* Animación para mover horizontalmente */
+@keyframes deslizar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-900px); /* desplaza todo excepto la primera imagen */
+  }
+  
+}
+
+
+@media screen and (max-width: 650px){
+    .intro{
+        flex-direction: column;
+        height: auto;
+        width: auto;
+    }
+
+    .info-inicio{
+        min-height: 70vh;
+        width: auto;
+    }
+
+    .carrusel{
+        -webkit-mask-image: none;
+         mask-image: none;
+         width: 100vw;
+    }
+
+}
+/* ----------------- Sección de tarjetas ----------------- */
+.cards {
+    display: grid; 
+    height: 90vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.cards__container{
+    background-color: var(--cambridge-blue);
+    grid-column: span 2;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+}
+
+.card__complet{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+}
+
+.icono__container{
+    display: flex;              
+    flex-direction: column;     /* para que imagen y texto estén uno sobre otro */
+    align-items: center;        /* centra horizontalmente */
+    justify-content: center;    /* centra verticalmente */
+    margin: auto;
+}
+
+.icono__container img{
+    width: 150px;
+    height: 150px;
+    border-radius: 999px;
+    background-color: white;
+}
+
+.icono__container p{
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.card__container {
+    display: flex;
+    gap: 50px;                
+    width: 70%;
+    margin: auto;
+    position: relative; /* importante para superposición controlada */
+}
+
+.card{
+    width: 70%;
+    height: 70%;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card__img {
+    position: absolute;
+    right: -110px; /* ajusta este valor según cómo quieras que se vea */
+    top: 50%;      /* lo centra verticalmente */
+    transform: translateY(-50%);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+
+
+@media screen and (max-width: 650px){
+
+    .icono__container img{
+    width: 70px;
+    height: 70px;
+    border-radius: 999px;
+    justify-content: space-evenly;
+}
+
+    .card{
+        height: 60vh;
+        margin: 30px 0 30px 0;
+    }
+
+}
+
+/* ----------------- Footer section ----------------- */
+.why{
+    background-color: var(--baby-powder);
+}
+.why__section{
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 70%;
+    margin: auto;
+}
+
+.why__container{
+    height: 20%;
+}
+
+.why__container h2{
+    font-size: 30px;
+    padding-top: 50px;
+}
+
+.whysections__container{
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.whysection__box{
+    display: flex;
+    flex-direction: column;        /* Para que h1 y p estén uno debajo del otro */
+    justify-content: center;       /* Centra verticalmente */              
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    background-color: var(--baby-powder);
+}
+
+.whysection__box h3, p{
+    padding: 0 15px 0 15px;
+
+}
+
+.whysection__box:hover{
+  transform: translateY(-5px);
+}
+
+@media screen and (max-width: 650px){
+
+
+    .why__section{
+        height: auto;
+    }
+
+    .whysections__container{
+        height: auto;
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
+    .whysection__box{
+        padding: 20px;
+
+    }
+
+}
+
+/* ----------------- Experiencias section ----------------- */
+
+.experiencias__container{
+     background-color: var(--cambridge-blue);
+     height: 90vh;
+     display: flex;
+     flex-direction: row;
+}
+
+.experiencias_img{
+    margin: 5%;
+    background-image: url('images/imagen-niña-manos.jpg');
+    background-size: cover;       /* Ajusta la imagen al tamaño del div */
+    background-position: center;
+    width: 90%;
+    animation: aparecer 1s both;
+    animation-timeline: view(block 80% auto);
+    border-radius: 20px;
+}
+
+.experiencias_info{
+    background-color: red;
+    width: 100%;
+    height: 100%;
+
+}
+
+.experiencias_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--cambridge-blue);
+}
+
+.experiencias_info h2, .experiencias_info p{
+  color: white;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: subir 1s ease-out forwards;
+  animation-timeline: view(block 80% auto);
+}
+
+.experiencias_info h2 {
+  color: white;
+  font-size: 40px;
+  margin-left: 10px;
+  animation-delay: 0.3s;
+}
+
+.experiencias_info p {
+  animation-delay: 0.6s;
+}
+
+@keyframes subir {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+/* ----------------- Form section ----------------- */
+
+.form {
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form__informacion{
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__title{
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+.form__info{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.form__lema{
+  margin-top: 10px;
+}
+
+.form__contacto{
+  margin-top: 10px;
+
+}
+
+.form__bnt button{
+  padding: 0.75rem;
+  border: none;
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form__form {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.form__form h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.form__form-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  gap: 1rem;
+}
+
+.form__form-items input,
+.form__form-items textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form__form-items input:focus,
+.form__form-items textarea:focus {
+  border-color: #007acc;
+  outline: none;
+}
+
+.form__form-items button {
+  padding: 0.75rem;
+  border: none;
+  background-color: var(--green);
+  color: var(--white);
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form__form-items button:hover {
+  background-color: var(--blue);
+}
+
+@media (max-width: 768px){
+  .form{
+    height: auto;
+    flex-direction: column;
+  }
+
+  .form__img-container{
+    width: 100vw;
+  }
+
+  .form__form{
+    width: 100vw;
+  }
+
+
+}
+
+/* ----------------- Footer section ----------------- */
+.footer {
+  background-color: #0a192f; /* Azul muy oscuro, estilo dev moderno */
+  color: #ccd6f6; /* Azul claro para buena legibilidad */
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+  border-top: 1px solid #233554;
+}
+
+.footer p {
+  margin: 0;
+  letter-spacing: 0.5px;
+}
