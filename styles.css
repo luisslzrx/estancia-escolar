@@ -146,14 +146,37 @@ body, div, section{
   border-radius: 8px;
 }
 
-/* Animación horizontal */
-@keyframes deslizar {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-900px);
-  }
+/* Animación para el texto de inicio */
+.intro h2,
+.intro p,
+.intro img,
+.btn {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.intro h2 {
+  animation-delay: 0.2s;
+}
+
+.intro img{
+  animation-delay: 0.4s;
+}
+
+.intro p {
+  animation-delay: 0.6s;
+}
+
+.btn {
+  animation-delay: 0.8s;
+}
+
+/* Animación para la imagen del carrusel */
+.carrusel {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.8s;
 }
 
 /* ----------------- Responsive ----------------- */
@@ -184,43 +207,70 @@ body, div, section{
 
 /* ----------------- Beneficios (iconos redondos) ----------------- */
 .beneficios {
+  text-align: center;
+  padding: 2rem;
   background-color: var(--cambridge-blue);
-  padding: 4rem 2rem;
-  display: flex;
-  justify-content: center;
+  min-height: 40vh;
 }
 
-.beneficios__container {
+.titulo{
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+
+.beneficios__grid {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  width: 100%;
-  max-width: 1200px;
+  gap: 2rem;
 }
 
-.icono__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.tarjeta {
+  background: white;
+  width: 200px;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.icono__container img {
-  width: 150px;
-  height: 150px;
-  border-radius: 999px;
-  background-color: white;
-  padding: 10px;
+.tarjeta__icono {
+  width: 80px;
+  height: 80px;
+  margin: -40px auto 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  background-color: var(--secondary-color);
 }
 
-.icono__container p {
-  color: white;
-  font-size: 20px;
-  margin-top: 10px;
-  font-weight: 600;
+.tarjeta__icono img {
+  width: 100%;
+  height: auto;
 }
 
+.tarjeta h3 {
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.tarjeta:hover{
+  transform: translateY(-15px);
+  cursor: pointer;
+}
+
+.tarjeta{
+  transform: translateY(60px);
+  animation: subir 1s ease forwards;
+  animation-timeline: view(block 80% auto);
+}
 
 /* ----------------- Misión y Visión ----------------- */
 .mision-vision {
@@ -267,10 +317,19 @@ body, div, section{
   color: #444;
 }
 
-.card__img {
+.card__img1 {
+  position: absolute;
+  right: 1100px;
+  top: 100%;
+  transform: translateY(-50%);
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.card__img2 {
   position: absolute;
   right: -100px;
-  top: 50%;
+  top: 100%;
   transform: translateY(-50%);
   z-index: 0;
   opacity: 0.9;
@@ -281,7 +340,16 @@ body, div, section{
 }
 
 
-/* ----------------- Responsive ----------------- */
+/* ---- Animación --- */
+.mision-vision__container{
+  opacity: 0; /* Añadido para inicio oculto */
+  transform: translateY(80px);
+  animation: subir 2s ease forwards; /* Duración 1.5s y easing 'ease' para más natural */
+  animation-timeline: view(block 80% auto);
+}
+
+
+/* -------- Responsive -------- */
 @media screen and (max-width: 768px) {
   .beneficios__container {
     flex-direction: column;
@@ -313,6 +381,7 @@ body, div, section{
   }
 }
 
+/* --------------- ¿Por qué estudiar? section -------------------- */
 .why {
   background: linear-gradient(135deg, #f9fbff 0%, var(--baby-powder) 100%);
   height: 100vh;           /* altura exacta */
@@ -805,5 +874,47 @@ body, div, section{
   .footer {
     font-size: 0.8rem;
     padding: 1rem 0.5rem;
+  }
+}
+
+
+
+/* ----------------- Animations ----------------- */
+@keyframes subir {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+/* Animación horizontal */
+@keyframes deslizar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-900px);
+  }
+}
+
+/* Animación de fade-in y slide */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
