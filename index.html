@@ -10,13 +10,17 @@
 
     <!-- Encabezado -->
     <header class="header">
-    <h1 class="logo">CDI Las Americas</h1>
-    <nav class="nav">
-        <a href="#">Inicio</a>
-        <a href="#">Beneficios</a>
-        <a href="#">Contacto</a>
-    </nav>
-    </header>
+  <h1 class="logo">MiLogo</h1>
+  <nav class="nav" id="nav-menu">
+    <a href="#">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Contacto</a>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+    ☰
+  </button>
+</header>
 
   <div class="container">
 
@@ -177,7 +181,7 @@
 
   <div class="form__form">
     <h2 class="form__form-title">Envíanos un mensaje</h2>
-    <form class="form__form-items" action="https://formsubmit.co/luisgerdx521@gmail.com" method="POST" novalidate>
+    <form class="form__form-items" action="guarderialasamericasdexalapa@gmail.com" method="POST" novalidate>
       <input type="text" name="name" placeholder="Tu nombre" required aria-required="true" />
       <input type="tel" name="phone" placeholder="Número de teléfono" pattern="[0-9\s+\-()]{7,}" title="Por favor ingresa un número válido" required aria-required="true" />
       <input type="email" name="email" placeholder="Tu correo" required aria-required="true" />
@@ -191,6 +195,8 @@
 <footer class="footer" role="contentinfo">
   <p>© 2025 Página Personal · Desarrollado por Luis Salazar</p>
 </footer>
+
+<script src="nav.js"></script>
 
 </body>
 </html>
